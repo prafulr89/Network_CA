@@ -1,0 +1,39 @@
+version: "3"
+services:
+  demo_svc:
+    networks: 
+      node_proxy:
+        ipv4_address: 172.15.238.10
+    env_file: .env
+    build: .
+    command: npm run debug
+    volumes:
+      - ./dist:/usr/src/app/dist
+    ports:
+      - "3000:3000"
+      - "5858:5858"
+  demo-db:
+    image: postgres
+    networks: 
+      node_proxy:
+        ipv4_address: 172.15.238.11
+    volumes:
+      - dbdata:/var/lib/postgresql/data
+      - ./init_db.sql:/docker-entrypoint-initdb.d/init_db.sql
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=demo
+      - PGUSER=postgres
+      - POSTGRES_PASSWORD=abcd1234
+volumes:
+  dbdata:
+    driver: local
+networks: 
+  node_proxy:
+    driver: bridge
+    ipam: 
+      driver: default
+      config: 
+        - subnet: 172.15.238.0/24
+

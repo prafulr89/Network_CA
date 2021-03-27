@@ -1,0 +1,48 @@
+[
+    {
+        "Name": "net-project_node_proxy",
+        "Id": "149681c7f520892a1762dd365d676d006e69d4e0a9115248ecd4e1f2455011de",
+        "Created": "2021-03-25T20:55:36.38093756-04:00",
+        "Scope": "local",
+        "Driver": "bridge",
+        "EnableIPv6": false,
+        "IPAM": {
+            "Driver": "default",
+            "Options": null,
+            "Config": [
+                {
+                    "Subnet": "172.15.238.0/24"
+                }
+            ]
+        },
+        "Internal": false,
+        "Attachable": true,
+        "Ingress": false,
+        "ConfigFrom": {
+            "Network": ""
+        },
+        "ConfigOnly": false,
+        "Containers": {
+            "a4fb3edddc99d8243c9d8daa3d8ce52ed2a31a25425e5e851f94d3abebef0c7c": {
+                "Name": "net-project_demo-db_1",
+                "EndpointID": "a84be1f3ba288e340335a78cabba92a3201661b1d44c916bfe49d8a4cb63e977",
+                "MacAddress": "02:42:ac:0f:ee:0b",
+                "IPv4Address": "172.15.238.11/24",
+                "IPv6Address": ""
+            },
+            "e0427f2776ce16abe2c0992b0a523b578eaf8da2904ba7b0a7512e6e7417d46a": {
+                "Name": "net-project_demo_svc_1",
+                "EndpointID": "97cd2963d25f7e4e6237eb855be52461d8ef5513c8d67584eec51c61b2a76f94",
+                "MacAddress": "02:42:ac:0f:ee:0a",
+                "IPv4Address": "172.15.238.10/24",
+                "IPv6Address": ""
+            }
+        },
+        "Options": {},
+        "Labels": {
+            "com.docker.compose.network": "node_proxy",
+            "com.docker.compose.project": "net-project",
+            "com.docker.compose.version": "1.28.4"
+        }
+    }
+]
